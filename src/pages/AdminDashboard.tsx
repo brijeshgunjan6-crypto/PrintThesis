@@ -10,6 +10,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 import { auth } from '../lib/firebase';
 import { signOut } from 'firebase/auth';
+import { Logo } from '../components/Logo';
 
 // Mock Data for the system
 const MOCK_ORDERS = [
@@ -94,7 +95,7 @@ export default function AdminDashboard() {
       {/* Sidebar */}
       <div className="w-64 bg-gray-900 text-white shrink-0 flex flex-col hidden md:flex">
          <div className="p-6 border-b border-gray-800">
-            <span className="font-serif text-2xl font-bold tracking-tight">Print<span className="text-indigo-400">Thesis</span></span>
+            <Logo className="h-6" textClassName="text-base" lightText />
             <div className="text-xs text-gray-400 mt-1 uppercase tracking-wider font-semibold">Admin Portal</div>
          </div>
          <nav className="flex-1 p-4 space-y-1.5 overflow-y-auto">

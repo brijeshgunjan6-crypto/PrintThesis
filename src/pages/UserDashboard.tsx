@@ -13,6 +13,7 @@ import { ref, uploadBytesResumable, getDownloadURL, deleteObject } from 'firebas
 import { auth, db, storage } from '../lib/firebase';
 import { handleFirestoreError, OperationType } from '../lib/firebaseError';
 import { signOut, onAuthStateChanged } from 'firebase/auth';
+import { Logo } from '../components/Logo';
 
 export default function UserDashboard() {
   const navigate = useNavigate();
@@ -672,8 +673,7 @@ function InvoicesPage({ orders }: { orders: any[] }) {
                    <div className="flex justify-between items-start mb-10 pb-8 border-b-2 border-gray-200">
                       <div>
                          <div className="flex items-center space-x-2 mb-4">
-                           <BookOpen className="w-8 h-8 text-indigo-600" />
-                           <span className="text-2xl font-serif font-black text-gray-900">ThesisPrint</span>
+                           <Logo className="h-8" textClassName="text-xl" />
                          </div>
                          <div className="text-sm text-gray-500 leading-relaxed">
                             123 University Road,<br/>

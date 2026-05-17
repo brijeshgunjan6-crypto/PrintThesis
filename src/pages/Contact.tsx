@@ -50,7 +50,7 @@ export default function Contact() {
             animate={{ opacity: 1, y: 0 }}
             className="text-4xl md:text-5xl lg:text-6xl font-serif font-black mb-6"
           >
-            Contact Lagunya Prints
+            Contact Lagunya Print
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}

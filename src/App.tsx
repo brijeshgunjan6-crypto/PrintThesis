@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react
 import { motion } from 'framer-motion';
 import { BookOpen, Printer, Search, Menu, X, CheckSquare, Upload, Phone, User, Settings, Package, Mail, MapPin } from 'lucide-react';
 import { useState } from 'react';
+import { Logo } from './components/Logo';
 
 // Pages
 import Home from './pages/Home';
@@ -27,11 +28,8 @@ function Navbar() {
     <nav className="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-red-800 rounded-lg flex items-center justify-center shadow-lg shadow-red-900/20">
-              <Printer className="text-white w-5 h-5" />
-            </div>
-            <span className="font-serif text-xl font-bold text-gray-900 tracking-tight">Print<span className="text-red-700">Thesis</span></span>
+          <Link to="/" className="flex items-center">
+            <Logo className="h-8" textClassName="text-lg" />
           </Link>
           
           <div className="hidden md:flex items-center space-x-8">
@@ -112,11 +110,8 @@ function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-1">
-            <Link to="/" className="flex items-center space-x-2 mb-6">
-              <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-lg">
-                <Printer className="text-[#7B1113] w-6 h-6" />
-              </div>
-              <span className="font-serif text-2xl font-bold tracking-tight">Print<span className="text-[#C59978]">Thesis</span></span>
+            <Link to="/" className="flex items-center mb-6">
+              <Logo className="h-8" textClassName="text-xl" lightText />
             </Link>
             <p className="text-white/80 text-sm leading-relaxed mb-6">
               Professional thesis printing and binding services trusted by universities worldwide. Elevate your academic achievements.
@@ -159,7 +154,7 @@ function Footer() {
           </div>
         </div>
         <div className="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-white/60">&copy; {new Date().getFullYear()} PrintThesis. All rights reserved.</p>
+          <p className="text-sm text-white/60">&copy; {new Date().getFullYear()} Lagunya Print. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
              <a href="#" className="text-sm text-white/60 hover:text-white transition">Privacy Policy</a>
              <a href="#" className="text-sm text-white/60 hover:text-white transition">Terms of Service</a>
