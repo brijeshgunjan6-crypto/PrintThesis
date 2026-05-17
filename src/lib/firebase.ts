@@ -19,3 +19,12 @@ const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 export const storage = getStorage(app);
+
+// Debugging for auth/network-request-failed
+if (typeof window !== 'undefined') {
+  if (window.location.hostname !== 'localhost' && 
+      !window.location.hostname.includes('firebaseapp.com') && 
+      !window.location.hostname.includes('web.app')) {
+    console.warn(`IMPORTANT: If you see 'auth/network-request-failed', please ensure '${window.location.hostname}' is added to Authorized Domains in Firebase Console > Authentication > Settings.`);
+  }
+}

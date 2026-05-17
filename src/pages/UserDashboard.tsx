@@ -326,7 +326,7 @@ function OrderDetails({ orders }: { orders: any[] }) {
                        <div className="text-xs text-gray-500">{f.size}</div>
                      </div>
                   </div>
-                  <button className="p-2 text-indigo-600 hover:bg-indigo-50 rounded-lg"><Eye className="w-4 h-4"/></button>
+                  <a href={f.downloadURL || f.url || '#'} target="_blank" rel="noopener noreferrer" className="p-2 text-indigo-600 hover:bg-indigo-50 rounded-lg"><Eye className="w-4 h-4"/></a>
                 </div>
               ))}
             </div>

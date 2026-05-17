@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle, Package, Printer, Star, UploadCloud, ChevronRight, Phone, BadgeCheck } from 'lucide-react';
+import { ArrowRight, CheckCircle, Package, Printer, Star, UploadCloud, ChevronRight, Phone, BadgeCheck, Calculator } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, EffectFade, Navigation, Pagination } from 'swiper/modules';
@@ -8,7 +8,7 @@ import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { AuthForm } from '../components/AuthForm';
+import { QuickCalculator } from '../components/QuickCalculator';
 
 export default function Home() {
   const navigate = useNavigate();
@@ -57,24 +57,57 @@ export default function Home() {
   return (
     <div className="w-full">
       {/* Hero Section matching capture.png */}
-      <section className="bg-[#7B1113] min-h-[calc(100vh-64px)] py-6 md:py-8 flex flex-col justify-center overflow-x-hidden">
-        <div className="max-w-[1280px] mx-auto px-4 w-full">
+      <section className="bg-gradient-to-b from-[#7B1113] to-[#5a0c0e] relative py-12 md:py-20 lg:py-24 overflow-hidden">
+        {/* Abstract background elements for a premium look */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1000px] h-[500px] opacity-30 pointer-events-none">
+           <div className="absolute inset-0 bg-gradient-to-r from-red-500 to-orange-500 blur-[120px] rounded-full mix-blend-overlay"></div>
+        </div>
+
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 w-full relative z-10">
           
           {/* Header replicating the Shrine Board header */}
-          <div className="flex flex-col md:flex-row items-center justify-center md:space-x-4 mb-6 md:mb-8 text-white select-none">
-             <div className="w-16 h-16 md:w-20 md:h-20 bg-[#9B1E1E] border-2 border-white rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(0,0,0,0.2)] mb-4 md:mb-0 relative shrink-0 overflow-hidden">
-               <div className="absolute inset-1.5 border border-white/50 rounded-full border-dashed" />
-               <Printer className="w-8 h-8 md:w-10 md:h-10 text-white" />
+          <div className="flex flex-col lg:flex-row items-center justify-between mb-12 md:mb-16 text-white text-center lg:text-left select-none max-w-[1100px] mx-auto gap-8">
+             <div className="flex-1 lg:max-w-2xl">
+               <div className="inline-flex items-center justify-center lg:justify-start space-x-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 mb-6 shadow-xl hover:bg-white/15 transition-colors cursor-default">
+                  <BadgeCheck className="w-4 h-4 text-emerald-400" />
+                  <span className="text-xs sm:text-sm font-semibold tracking-wide text-white/90">Trusted by 5000+ Students & Universities</span>
+               </div>
+               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-sans font-black tracking-tight text-white mb-6 leading-[1.1] drop-shadow-sm">
+                 Premium Thesis <br />
+                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 via-yellow-400 to-yellow-500">Printing & Binding</span>
+               </h1>
+               <p className="text-lg sm:text-xl text-white/80 font-medium leading-relaxed max-w-xl mx-auto lg:mx-0">
+                 Professional, university-standard printing delivered directly to your door. The fastest and most reliable way to get your thesis ready for submission.
+               </p>
              </div>
-             <div className="text-center md:text-left">
-                <h1 className="text-2xl md:text-4xl font-sans font-black tracking-tight text-white drop-shadow-md">Professional Thesis Printing and Binding Services</h1>
-                <h2 className="text-lg md:text-2xl font-bold text-white mt-1 md:mt-2 drop-shadow-md">Online Services</h2>
+             
+             <div className="flex flex-col w-full sm:w-auto mt-6 lg:mt-0 space-y-4 shrink-0">
+                <Link to="/upload" className="w-full sm:w-auto group relative inline-flex items-center justify-center px-8 py-5 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-300 hover:to-yellow-400 text-black text-xl font-black rounded-2xl transition-all duration-300 hover:scale-[1.02] active:scale-95 shadow-[0_0_40px_rgba(250,204,21,0.4)] hover:shadow-[0_0_60px_rgba(250,204,21,0.6)] overflow-hidden">
+                  <span className="relative z-10 flex items-center gap-2">
+                    Upload Your Thesis Now
+                    <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" />
+                  </span>
+                </Link>
+                <div className="grid grid-cols-2 gap-3">
+                  <button onClick={() => {
+                     document.getElementById('quick-quote-panel')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                  }} className="col-span-2 w-full inline-flex items-center justify-center px-6 py-4 bg-white/10 hover:bg-white/20 text-white font-bold rounded-xl transition-all duration-300 backdrop-blur-sm border border-white/20 hover:border-white/40">
+                    <Calculator className="w-5 h-5 mr-3" />
+                    Get Instant Quote
+                  </button>
+                </div>
+                <div className="grid grid-cols-2 gap-y-3 gap-x-4 sm:gap-x-6 w-full mt-4 text-white/80 text-sm font-medium bg-black/20 rounded-xl p-4 sm:p-5 border border-white/10 shadow-inner">
+                  <div className="flex items-center gap-2.5"><CheckCircle className="w-5 h-5 text-emerald-400 shrink-0" /> <span className="whitespace-nowrap">Fast Delivery</span></div>
+                  <div className="flex items-center gap-2.5"><Star className="w-5 h-5 text-yellow-400 shrink-0" fill="currentColor" /> <span className="whitespace-nowrap">4.9/5 Rating</span></div>
+                  <div className="flex items-center gap-2.5"><BadgeCheck className="w-5 h-5 text-blue-400 shrink-0" /> <span className="whitespace-nowrap">Uni-Approved</span></div>
+                  <div className="flex items-center gap-2.5"><Printer className="w-5 h-5 text-purple-400 shrink-0" /> <span className="whitespace-nowrap">Premium Print</span></div>
+                </div>
              </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-[1.6fr_1fr] gap-4 md:gap-6 items-stretch">
+          <div id="quick-quote-panel" className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-8 lg:gap-12 items-stretch max-w-[1100px] mx-auto">
             {/* Left Side -> Slider */}
-            <div className="w-full h-[320px] md:h-[400px] lg:h-[420px] xl:h-[480px] rounded-md overflow-hidden shadow-2xl relative bg-black border border-[#a11111]">
+            <div className="w-full min-h-[400px] h-full rounded-3xl overflow-hidden shadow-2xl relative bg-black ring-1 ring-white/20 flex flex-col group">
               <Swiper
                 modules={[Autoplay, EffectFade, Navigation, Pagination]}
                 effect="fade"
@@ -82,35 +115,35 @@ export default function Home() {
                 pagination={{ clickable: true }}
                 autoplay={{ delay: 5000, disableOnInteraction: false }}
                 loop={true}
-                className="w-full h-full"
+                className="w-full h-full absolute inset-0"
               >
                 {heroSlides.map((slide) => (
                   <SwiperSlide key={slide.id} className="relative w-full h-full">
                     {/* Dark gradient overlay for text readability */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#7B1113]/90 via-transparent to-transparent z-10" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#7B1113]/90 via-black/40 to-transparent z-10" />
                     <img 
                       src={slide.image} 
                       alt={slide.title} 
-                      className="w-full h-full object-cover" 
+                      className="w-full h-full object-cover transition-transform duration-[10s] ease-out group-hover:scale-105" 
                       loading="lazy"
                       onError={(e) => {
                          (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&q=80&w=1600';
                       }}
                     />
                     
-                    <div className="absolute bottom-8 left-8 z-20 text-white max-w-lg">
-                      <div className="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-[10px] sm:text-xs font-bold tracking-wider mb-2">NEW SERVICE</div>
-                      <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold font-serif mb-1 md:mb-2 leading-tight">{slide.title}</h3>
-                      <p className="text-xs sm:text-sm text-white/90 font-medium">{slide.subtitle}</p>
+                    <div className="absolute bottom-10 left-10 z-20 text-white max-w-lg pr-8">
+                      <div className="inline-block px-3 py-1 bg-white/20 backdrop-blur-md border border-white/20 rounded-full text-[10px] sm:text-xs font-bold tracking-wider mb-4 shadow-lg">NEW SERVICE</div>
+                      <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-serif mb-2 leading-tight drop-shadow-md">{slide.title}</h3>
+                      <p className="text-sm sm:text-base text-white/90 font-medium drop-shadow-sm">{slide.subtitle}</p>
                     </div>
                   </SwiperSlide>
                 ))}
               </Swiper>
             </div>
 
-            {/* Right Side -> Login Panel matching capture.png */}
-            <div className="w-full h-[520px] md:h-[500px] lg:h-[480px] xl:h-[520px] bg-transparent rounded-md flex flex-col relative scale-95">
-               <AuthForm theme="dark" />
+            {/* Right Side -> Calculator Panel */}
+            <div className="w-full flex relative z-20">
+               <QuickCalculator />
             </div>
           </div>
         </div>

@@ -491,8 +491,8 @@ function OrderDetails() {
                         </div>
                       </div>
                       <div className="flex space-x-2">
-                         <button className="p-2 text-gray-600 hover:text-indigo-600 bg-white border border-gray-200 rounded-lg shadow-sm transition"><Eye className="w-4 h-4" /></button>
-                         <button className="p-2 text-gray-600 hover:text-indigo-600 bg-white border border-gray-200 rounded-lg shadow-sm transition"><Download className="w-4 h-4" /></button>
+                     <a href={file.downloadURL || file.url || '#'} target="_blank" rel="noopener noreferrer" className="p-2 text-gray-600 hover:text-indigo-600 bg-white border border-gray-200 rounded-lg shadow-sm transition"><Eye className="w-4 h-4" /></a>
+                     <a href={file.downloadURL || file.url || '#'} download target="_blank" rel="noopener noreferrer" className="p-2 text-gray-600 hover:text-indigo-600 bg-white border border-gray-200 rounded-lg shadow-sm transition"><Download className="w-4 h-4" /></a>
                       </div>
                     </div>
                   ))}

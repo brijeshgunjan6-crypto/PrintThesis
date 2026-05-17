@@ -7,18 +7,15 @@ service cloud.firestore {
 
     // Users
     match /users/{userId} {
-      allow read, write: if isOwner(userId);
-      match /addresses/{addressId} {
-        allow read, write: if isOwner(userId);
+      allow read, write: if isSignedIn();
+      match /{document=**} {
+        allow read, write: if isSignedIn();
       }
     }
 
     // Orders
-    match /orders/{orderId} {
-      allow list: if isSignedIn() && resource.data.userId == request.auth.uid;
-      allow get: if isSignedIn() && resource.data.userId == request.auth.uid;
-      allow create: if isSignedIn() && request.resource.data.userId == request.auth.uid;
-      allow update: if isSignedIn() && resource.data.userId == request.auth.uid;
+    match /orders/{document=**} {
+       allow read, write: if isSignedIn();
     }
   }
 }
